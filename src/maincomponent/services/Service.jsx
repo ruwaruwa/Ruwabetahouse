@@ -103,7 +103,7 @@ const  DELETEs=async(data)=>{
     <Box sx={{width:'300px',mt:2}}>
      
         
-        <Stack spacing={3} direction={'column'}></Stack>
+        <Stack spacing={3} direction={'column'}>
 
         <Box>
         <TextField
@@ -124,7 +124,7 @@ const  DELETEs=async(data)=>{
          {errors.icon && <Typography sx={{color:'red'}}>please enter icon</Typography>}
 </Box>
 
-       
+</Stack>
       
 
 </Box>
