@@ -47,7 +47,7 @@ function App() {
   <Route path='Contacts' element={<ContacTs/>}></Route>
   <Route path='gellary' element={<Gellary/>}></Route>
   {/* <Route path='images' element={<Images/>}></Route>  */}
-  <Route path='users' element={<Images/>}></Route>
+  {/* <Route path='users' element={<Images/>}></Route> */}
   {/* <Route path='home'></Route>
   <Route path='gellary'></Route> */}
   <Route path='guryaha' element={<Guryaha/>} />
