@@ -17,7 +17,7 @@ import { Service } from './maincomponent/services/Service'
 import { About } from './maincomponent/About/About'
 import Home from './maincomponent/home/Home'
 import { ContacTs } from './maincomponent/contacts/Contacts'
-import Images from './maincomponent/Images/images'
+// import Images from './maincomponent/Images/images'
 import Gellary from './maincomponent/Gellary/Gellary'
 import Delete_Confirm from './maincomponent/DeleteComponen/Delete_Confirm'
 
@@ -46,7 +46,7 @@ function App() {
   <Route path='about' element={<About/>}></Route>
   <Route path='Contacts' element={<ContacTs/>}></Route>
   <Route path='gellary' element={<Gellary/>}></Route>
-  <Route path='images' element={<Images/>}></Route> 
+  {/* <Route path='images' element={<Images/>}></Route>  */}
   <Route path='users' element={<Images/>}></Route>
   {/* <Route path='home'></Route>
   <Route path='gellary'></Route> */}
