@@ -60,6 +60,7 @@ onError:(er)=>{
 toast.error('sorry canot be get ',er)
 }
   })
+
 /////post
   const {mutate,isLoading:mutateloading}=useMutation({
     mutationFn:async(data)=> await Addclients(data),
@@ -257,6 +258,7 @@ delethok.TOggle()
    </Dialog>
    {/* <ClientList /> */}
    {/* </Divider> */}
+   
    {isError ? (<Box sx={{ display:'flex',justifyContent:'center',textAlign:'center',alignItems:"center",p:10}}>
    <Box>
 
