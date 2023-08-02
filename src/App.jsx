@@ -18,8 +18,10 @@ import { About } from './maincomponent/About/About'
 import Home from './maincomponent/home/Home'
 import { ContacTs } from './maincomponent/contacts/Contacts'
 // import Images from './maincomponent/Images/images'
-import Gellary from './maincomponent/Gellary/Gellary'
+
+
 import Delete_Confirm from './maincomponent/DeleteComponen/Delete_Confirm'
+import { Gellary } from './maincomponent/Gellary/Gellary'
 
 function App() {
   // const [count, setCount] = useState(0)

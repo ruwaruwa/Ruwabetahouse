@@ -160,20 +160,20 @@ export const Sidebar=({Droweropen,drowerclose})=>{
           </Link>
           
 
-          <Link to={'About'}>
+          <Link to={'about'}>
           <ListItem disablePadding>
-            <ListItemButton sx={[selectedMenu === 'About' && {bgcolor:"primary.main",color:'white',":hover":{
+            <ListItemButton sx={[selectedMenu === 'about' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
 
             }}]}
             onClick={()=>{
-              setMenu('About')
+              setMenu('about')
               drowerclose()
             }}>
               <ListItemIcon>
-                <Image sx={[selectedMenu==='About'&& {color:'white'}]}/>
+                <Image sx={[selectedMenu==='about'&& {color:'white'}]}/>
               </ListItemIcon>
-              <ListItemText primary="About" />
+              <ListItemText primary="about" />
             </ListItemButton>
           </ListItem>
           </Link>

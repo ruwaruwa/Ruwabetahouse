@@ -38,14 +38,14 @@ export const  Contactlist=({newcontacts,updateCONTACTS,delCONTAS})=> {
     {/* {///up.del buto} */}
 
     <IconButton onClick={()=>updateCONTACTS(params.row)}>
-    <DriveFileRenameOutlineIcon sx={{color:'blue'}} ></DriveFileRenameOutlineIcon>
+    <DriveFileRenameOutlineIcon sx={{color:'primary.dark',fontSize:'50'}} ></DriveFileRenameOutlineIcon>
     
 
     </IconButton>
 
-    {/* <IconButton onClick={()=>serviceDELETE(params.row)}>
-    <DeleteIcon sx={{color:'green'}}></DeleteIcon>
-    </IconButton> */}
+    <IconButton onClick={()=>delCONTAS(params.row)}>
+    <AutoDeleteIcon sx={{color:'error.main',fontSize:'60'}}></AutoDeleteIcon>
+    </IconButton>
 
     </Box>
  

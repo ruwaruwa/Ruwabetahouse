@@ -4,7 +4,7 @@ import { Alert, Box, Breadcrumbs, Button, CircularProgress, Dialog, DialogAction
 import TextField from '@mui/material/TextField';
 import { useEffect, useState } from "react";
 import  ClientList  from "./ClientsList";
-import { getallClients,getclinetsBYid,Addclients,updateClients,delclinets } from "./apicrud";
+// import { getallClients,getclinetsBYid,Addclients,updateClients,delclinets } from "./apicrud";
 import { useForm } from "react-hook-form";
 import { DataGrid, gridRowsDataRowIdToIdLookupSelector } from '@mui/x-data-grid';
 import Swal from "sweetalert2";
@@ -19,7 +19,7 @@ import { useDeletehock } from "../DeleteHoks/Deletehock";
 import Delete_Confirm from "../DeleteComponen/Delete_Confirm";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-
+import{Getall,Addnew,updates,Deletes} from '../../SHared/Apiconfig'
 export const Clients=()=>{
   const queryclient = useQueryClient()
 
@@ -53,48 +53,91 @@ const[edit,setid]=useState('')
 
   //update
   
-  const {data:client,isLoading,isError}=useQuery({
-    queryKey:['clients'],
-queryFn: async()=> await getallClients(),
+//   const {data:client,isLoading,isError}=useQuery({
+//     queryKey:['clients'],
+// queryFn: async()=> await Getall(),
+// onError:(er)=>{
+// toast.error('sorry canot be get ',er)
+// }
+//   })
+
+const {data:client,isLoading,isError}=useQuery({
+  queryKey:['clients'],
+queryFn: async(data)=> await Getall('clients',data),
 onError:(er)=>{
 toast.error('sorry canot be get ',er)
 }
-  })
+})
 
 /////post
-  const {mutate,isLoading:mutateloading}=useMutation({
-    mutationFn:async(data)=> await Addclients(data),
-    onSuccess:()=>{
+//   const {mutate,isLoading:mutateloading}=useMutation({
+//     mutationFn:async(data)=> await Addclients(data),
+//     onSuccess:()=>{
+
+// queryclient.invalidateQueries({queryKey:['clients']})
+//  toast.success('success fully saved !')
+// // console.log('succees')
+// // setReset(new Date())
+//     },
+    
+//     onError:()=>{
+//       console.log('err ayaa jiro')
+//     }
+  
+//   })
+const {mutate,isLoading:mutateloading}=useMutation({
+  mutationFn:async(data)=> await Addnew('clients',data),
+  onSuccess:()=>{
 
 queryclient.invalidateQueries({queryKey:['clients']})
- toast.success('success fully saved !')
+toast.success('success fully saved !')
 // console.log('succees')
 // setReset(new Date())
-    },
-    
-    onError:()=>{
-      console.log('err ayaa jiro')
-    }
+  },
   
-  })
+  onError:()=>{
+    console.log('err ayaa jiro')
+  }
+
+})
+
+
 
   //upd
-const{mutate:updatemutate,isLoading:updateloading}=useMutation({
-mutationFn:async(data)=>{
-  return await updateClients(edit,data)
+// const{mutate:updatemutate,isLoading:updateloading}=useMutation({
+// mutationFn:async(data)=>{
+//   return await update(edit,data)
 
-},
-onSuccess:()=>{
-  queryclient.invalidateQueries({queryKey:['clients']})
-toast.success('successfully updated !!!')
-  ToggleDailog()
-  setReset(new Date())
-  reset()
-},
-onError:(E)=>{
-console.log('sorry upate madhicin',E)
-}
-})
+// },
+// onSuccess:()=>{
+//   queryclient.invalidateQueries({queryKey:['clients']})
+// toast.success('successfully updated !!!')
+//   ToggleDailog()
+//   setReset(new Date())
+//   reset()
+// },
+// onError:(E)=>{
+// console.log('sorry upate madhicin',E)
+// }
+// })
+
+const{mutate:updatemutate,isLoading:updateloading}=useMutation({
+  mutationFn:async(data)=>{
+    return await updates(`clients/${edit}`,data)
+  
+  },
+  onSuccess:()=>{
+    queryclient.invalidateQueries({queryKey:['clients']})
+  toast.success('successfully updated !!!')
+    ToggleDailog()
+    
+    reset()
+  },
+  onError:(E)=>{
+    // console.log('test',data)
+  console.log('sorry upate madhicin',E)
+  }
+  })
   
   const newCLIENTS= async(data)=>{
 if(edit !==''){
@@ -104,7 +147,7 @@ try {
   // ToggleDailog()
   updatemutate(data)
 
-  setReset(new Date())
+  // setReset(new Date())
   
 } catch (error) {
   console.log('erro !',error)
@@ -124,7 +167,7 @@ try {
   //   showConfirmButton: false,
   //   timer: 1500
   // })
-  setReset(new Date())
+  // setReset(new Date())
 } catch (error) {
   console.log('err',error)
 }
@@ -140,17 +183,19 @@ console.log(data.name)
 console.log(data.client_logo)
    setValue("client_logo",data.client_logo)
       setid(data._id)
+      console.log('woo wada',edit)
       ToggleDailog()
-      setReset(new Date())
+      // setReset(new Date())
   
   }
+  
   //delete sections
 
 
 
 ///delete mutate
 const {mutate:deletemutate,}=useMutation({
-  mutationFn:(id)=>delclinets(id),
+  mutationFn:(id)=>Deletes(`clients/${id}`),
   onSuccess:()=>{
  toast.success('successfuly deleted !! ')
     delethok.TOggle()
@@ -178,8 +223,9 @@ delethok.TOggle()
 
  setcldeleteid(data._id)
   // console.log('deleted',)
-  alert(_id)
+  // alert(_id)
 }
+
     return<>
    <Box sx={{p:2}}>
 <Delete_Confirm OPEn={delethok.OPEns} TOGELER={delethok.TOggle}message={delethok.message}confirm={deleteCHeck} />

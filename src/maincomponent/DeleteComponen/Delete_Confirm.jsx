@@ -7,7 +7,7 @@ export default function Delete_Confirm({message,OPEn,TOGELER,confirm}) {
  <>
  <Box>
  <Dialog open={OPEn} onClose={TOGELER}>
-        <DialogTitle>Delete Confirmation</DialogTitle>
+        <DialogTitle textAlign={'center'}>Delete Confirmation</DialogTitle>
         <Box  >
         <DialogContent>
         <Box sx={{width:"300px",display:'flex',justifyContent:'center',alignItems:'center',textAlign:'center'}} mt={2} >
@@ -19,7 +19,7 @@ export default function Delete_Confirm({message,OPEn,TOGELER,confirm}) {
 
 
 
-<Typography variant='h5' > are you sure to delete ? </Typography>
+<Typography variant='h5'color={'error.warning'} > are you sure to delete ? </Typography>
 
 <Typography >{message}</Typography>
     
