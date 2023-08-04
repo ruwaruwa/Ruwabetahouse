@@ -15,13 +15,17 @@ import { Guryaha } from './maincomponent/Guryaha/Guryaha';
 import { Clients } from './maincomponent/Clients/Client'
 import { Service } from './maincomponent/services/Service'
 import { About } from './maincomponent/About/About'
-import Home from './maincomponent/home/Home'
+
 import { ContacTs } from './maincomponent/contacts/Contacts'
 // import Images from './maincomponent/Images/images'
 
 
 import Delete_Confirm from './maincomponent/DeleteComponen/Delete_Confirm'
 import { Gellary } from './maincomponent/Gellary/Gellary'
+
+import Imagefolder from './maincomponent/Images/Imagefolder'
+import Notfound from '../Notfound'
+import Home from './maincomponent/home/Home'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -38,16 +42,19 @@ function App() {
   {/* //Sidebar */}
 
 {/* <Dashbords/> */}
+{/* <Imagefolder/> */}
  <Routes>
-  {/* <Route path='/'>login page</Route> */}
+  <Route path='/' element={<h2>login bage</h2>}></Route>
+  <Route path="*" element={<Notfound/>}></Route>
 
-  <Route path='/' element={<Dashbords/>}>
+  <Route path='dashbord' element={<Dashbords/>}>
   <Route path='home' element={<Home/>}></Route>
   <Route path='clients' element={<Clients/>} />
   <Route path='service' element={<Service/>} />
   <Route path='about' element={<About/>}></Route>
   <Route path='Contacts' element={<ContacTs/>}></Route>
   <Route path='gellary' element={<Gellary/>}></Route>
+  <Route path='images/:id/' element={<Imagefolder/>}></Route>
   {/* <Route path='images' element={<Images/>}></Route>  */}
   {/* <Route path='users' element={<Images/>}></Route> */}
   {/* <Route path='home'></Route>

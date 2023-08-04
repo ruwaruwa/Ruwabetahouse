@@ -123,7 +123,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
           </ListItem>
           </Link>
 
-          <Link to={'images'}>
+          {/* <Link to={'images'}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'images' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
@@ -139,7 +139,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
               <ListItemText primary="images" />
             </ListItemButton>
           </ListItem>
-          </Link>
+          </Link> */}
 
           <Link to={'service'}>
           <ListItem disablePadding>
@@ -348,7 +348,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
           </ListItem>
           </Link>
 
-          <Link to={'images'}  style={{textDecoration:"none"}}>
+          {/* <Link to={'images'}  style={{textDecoration:"none"}}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'images' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
@@ -364,7 +364,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
               <ListItemText primary="images" />
             </ListItemButton>
           </ListItem>
-          </Link>
+          </Link> */}
 
           <Link to={'service'}  style={{textDecoration:"none"}}>
           <ListItem disablePadding>

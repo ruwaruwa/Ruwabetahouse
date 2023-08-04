@@ -1,6 +1,6 @@
 
 import { AddCircleOutline, AddHomeWork, ErrorOutlineOutlined, } from "@mui/icons-material";
-import { Alert, Box, Breadcrumbs, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Divider, FormControl, IconButton, InputLabel, ListItem, ListSubheader, MenuItem, Select, Stack ,Typography} from "@mui/material"
+import { Alert, Box, Breadcrumbs, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Divider, IconButton, Stack ,Typography} from "@mui/material"
 import TextField from '@mui/material/TextField';
 import { useEffect, useState } from "react";
 
@@ -22,9 +22,8 @@ import { Link } from "react-router-dom";
 import{Getall,Addnew,updates,Deletes} from '../../SHared/Apiconfig'
 
 import{getAllquery,Addquery,Updatequery,DeleteQuery} from  '../../SHared/ReactQuery'
-import Guryahalist from "./Guryahalist";
-// import Homelist from "./Homelist";
-export const Guryaha=()=>{
+import Homelist from "./Homelist";
+export const Home=()=>{
   const queryclient = useQueryClient()
 
   const [dailogOpen,setDailog]=useState(false)
@@ -47,7 +46,7 @@ const[edit,setid]=useState('')
 
 
 //use query manages
-const {data:client,isLoading,isError}=getAllquery('/guryaha','guryaha')
+const {data:client,isLoading,isError}=getAllquery('/shirkada','shirkada')
 
 /////post
 //   const {mutate,isLoading:mutateloading}=useMutation({
@@ -67,7 +66,7 @@ const {data:client,isLoading,isError}=getAllquery('/guryaha','guryaha')
 //   })
 
 ////////////////////post new eh last isku day
-const {mutate,isLoading:mutateloading}=Addquery('/guryaha','guryaha')
+const {mutate,isLoading:mutateloading}=Addquery('/shirkada','shirkada')
 
 
 
@@ -110,7 +109,7 @@ const {mutate,isLoading:mutateloading}=Addquery('/guryaha','guryaha')
   
 /////////une updates
 
-const{mutate:updatemutate,isLoading:updateloading}=Updatequery(`/guryaha/${edit}`,'guryaha')
+const{mutate:updatemutate,isLoading:updateloading}=Updatequery(`/shirkada/${edit}`,'shirkada')
 
 
   const newCLIENTS= async(data)=>{
@@ -144,35 +143,34 @@ try {
 //new pos end
 //updat qimah
 const UpdateClientInfo = async (data)=>{
-console.log(data.Housetype)
-      setValue("Housetype",data.Housetype)
-      console.log(data.area)
-      setValue("area",data.area)
-console.log(data.adress)
-   setValue("adress",data.adress)
-   console.log(data.age)
-      setValue("age",data.age)
-      console.log(data.deposit)
-      setValue("deposit",data.deposit)
-      console.log(data.rent)
-      setValue("rent",data.rent)
-      console.log(data.parking)
-      setValue("parking",data.parking)
-      console.log(data.imagepreview)
-      setValue("imagepreview",data.imagepreview)
-      console.log(data.isAvailable)
-      setValue("isAvailable",data.isAvailable)
-
-      console.log(data.rooms)
-      setValue("rooms",data.rooms)
-      console.log(data.pathrooms)
-      setValue("pathrooms",data.pathrooms)
-      console.log(data.masterRooms)
-      setValue("masterRooms",data.masterRooms)
-      console.log(data.description)
-      setValue("description",data.description)
-      // console.log(data.footer_Text)
-      // setValue("footer_Text",data.footer_Text)
+console.log(data.name)
+      setValue("name",data.name)
+      console.log(data.location)
+      setValue("location",data.location)
+console.log(data.logo)
+   setValue("logo",data.logo)
+   console.log(data.email)
+      setValue("email",data.email)
+      console.log(data.address)
+      setValue("address",data.address)
+      console.log(data.phone)
+      setValue("phone",data.phone)
+      console.log(data.facebook)
+      setValue("facebook",data.facebook)
+      console.log(data.tiktok)
+      setValue("tiktok",data.tiktok)
+      console.log(data.twitter)
+      setValue("twitter",data.twitter)
+      console.log(data.Instigram)
+      setValue("Instigram",data.Instigram)
+      console.log(data.her_title)
+      setValue("her_title",data.her_title)
+      console.log(data.hero_img)
+      setValue("hero_img",data.hero_img)
+      console.log(data.hero_description)
+      setValue("hero_description",data.hero_description)
+      console.log(data.footer_Text)
+      setValue("footer_Text",data.footer_Text)
       setid(data._id)
       // console.log('woo wada',edit)
       ToggleDailog()
@@ -184,7 +182,7 @@ console.log(data.adress)
 
 
 ///dete
-const {mutate:deletemutate,}=DeleteQuery(`/guryaha/${DELETCLIENT}`)
+const {mutate:deletemutate,}=DeleteQuery(`/shirkada/${DELETCLIENT}`)
 //delete hoks
 const delethok= useDeletehock()
 const deleteCHeck=()=>{
@@ -226,12 +224,12 @@ delethok.TOggle()
 
 
 
-    <Alert severity="info" sx={{p:2}}>our guri  </Alert>
+    <Alert severity="info" sx={{p:2}}>our home  </Alert>
 
  {/* <Divider sx={{height:10}}> */}
   
     <Box sx={{display:"flex",justifyContent:"space-between"}} my={2}>
-        <Typography variant="h6">List houses</Typography>
+        <Typography variant="h6">List home</Typography>
   
         <IconButton onClick={ToggleDailog}>
 <AddCircleOutline sx={{color:"primary.main",fontSize:'50px'}}/>
@@ -244,119 +242,100 @@ delethok.TOggle()
    {/* {mytext feilds} */}
 <Dialog open={dailogOpen} onClose={ToggleDailog}>
 
-  <DialogTitle>New guryaha</DialogTitle>
+  <DialogTitle>New homesetting</DialogTitle>
   <Box  component={"form"} onSubmit={handleSubmit(newCLIENTS)}>
    <DialogContent>
 
    <Box sx={{width:'380px',mt:2}}> 
 <Stack spacing={2} direction={"column"}>
 <Box>
-{/* <TextField
-   label="Housetype" variant="outlined" {...register('Housetype',{required:true})}size="small"fullWidth
-         /> */}
-         {/* {errors.Housetype && <Typography sx={{color:'red'}}>please select type</Typography>} */}
-         <Box>
-
-         <InputLabel id="demo-simple-select-autowidth-label" label='Housetype'  {...register('Housetype',
-         {required:true})} > select house type</InputLabel>
-        
-        {/* <Select > */}
-       
-        <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel htmlFor="grouped-select">house_Type</InputLabel>
-        <Select defaultValue="" id="grouped-select" label="Housetype" {...register('Housetype',
-         {required:true})}>
-          <MenuItem value="">
-            
-          </MenuItem>
-          <ListSubheader>house type</ListSubheader>
-          <MenuItem value='villa'>villa</MenuItem>
-          <MenuItem value='biyana'>biyana</MenuItem>
-          <MenuItem value='dabaq'>dabaq</MenuItem>
-          <ListSubheader>qeybta yar</ListSubheader>
-          <MenuItem value='bacweyne'>bacweyne</MenuItem>
-          <MenuItem value='jingad'>jingad</MenuItem>
-          <MenuItem value='carish'>carish</MenuItem>
-        </Select>
-      </FormControl>
-         
-        {/* </Select> */}
-        {errors.Housetype && <Typography sx={{color:'red'}}>please select type</Typography>}
-         </Box>
+<TextField
+   label="name" variant="outlined" {...register('name',{required:true})}size="small"fullWidth
+         />
+         {errors.name && <Typography sx={{color:'red'}}>please enter name</Typography>}
 </Box>
-{/* // */}
 <Box>
 <TextField
-   label="area" variant="outlined" {...register('area',{required:true})}size="small"fullWidth
+   label="location" variant="outlined" {...register('location',{required:true})}size="small"fullWidth
          />
-         {errors.area && <Typography sx={{color:'red'}}>please enter area</Typography>}
+         {errors.location && <Typography sx={{color:'red'}}>please enter location</Typography>}
 </Box>
        <Box>
        <TextField
       
       variant="outlined"
-      label="adress"{...register('adress',{required:true})} size="small"fullWidth
+      label="logo"{...register('logo',{required:true})} size="small"fullWidth
     
     />
-         {errors.adress && <Typography sx={{color:'red'}}>please enter adress</Typography>}
+         {errors.logo && <Typography sx={{color:'red'}}>please enter logo</Typography>}
        </Box>
        <Box>
 <TextField
-   label="age" variant="outlined" {...register('age',{required:true})}size="small"fullWidth
+   label="email" variant="outlined" {...register('email',{required:true})}size="small"fullWidth
          />
-         {errors.age && <Typography sx={{color:'red'}}>please enter age</Typography>}
+         {errors.email && <Typography sx={{color:'red'}}>please enter email</Typography>}
 </Box>
 
 <Box>
 <TextField
-   label="deposit" variant="outlined" {...register('deposit',{required:true})}size="small"fullWidth
+   label="address" variant="outlined" {...register('address',{required:true})}size="small"fullWidth
          />
-         {errors.deposit && <Typography sx={{color:'red'}}>please enter deposit</Typography>}
+         {errors.address && <Typography sx={{color:'red'}}>please enter address</Typography>}
 </Box>
 <Box>
 <TextField
-   label="rent" variant="outlined" {...register('rent',{required:true})}size="small"fullWidth
+   label="phone" variant="outlined" {...register('phone',{required:true})}size="small"fullWidth
          />
-         {errors.rent && <Typography sx={{color:'red'}}>please enter rent</Typography>}
+         {errors.phone && <Typography sx={{color:'red'}}>please enter phone</Typography>}
 </Box>
 <Box>
 <TextField
-   label="parking" variant="outlined" {...register('parking',{required:true})}size="small"fullWidth
+   label="facebook" variant="outlined" {...register('facebook',{required:true})}size="small"fullWidth
          />
-         {errors.parking && <Typography sx={{color:'red'}}>please enter parking</Typography>}
+         {errors.facebook && <Typography sx={{color:'red'}}>please enter facebook</Typography>}
 </Box>
 <Box>
 <TextField
-   label="imagepreview" variant="outlined" {...register('imagepreview',{required:true})}size="small"fullWidth
+   label="tiktok" variant="outlined" {...register('tiktok',{required:true})}size="small"fullWidth
          />
-         {errors.imagepreview && <Typography sx={{color:'red'}}>please enter imagepreview</Typography>}
+         {errors.tiktok && <Typography sx={{color:'red'}}>please enter tiktok</Typography>}
 </Box>
 <Box>
 <TextField
-   label="rooms" variant="outlined" {...register('rooms',{required:true})}size="small"fullWidth
+   label="twitter" variant="outlined" {...register('twitter',{required:true})}size="small"fullWidth
          />
-         {errors.rooms && <Typography sx={{color:'red'}}>please enter rooms</Typography>}
+         {errors.twitter && <Typography sx={{color:'red'}}>please enter twitter</Typography>}
 </Box>
 <Box>
 <TextField
-   label="pathrooms" variant="outlined" {...register('pathrooms',{required:true})}size="small"fullWidth
+   label="Instigram" variant="outlined" {...register('Instigram',{required:true})}size="small"fullWidth
          />
-         {errors.pathrooms && <Typography sx={{color:'red'}}>please enter pathrooms</Typography>}
+         {errors.Instigram && <Typography sx={{color:'red'}}>please enter Instigram</Typography>}
 </Box>
 <Box>
 <TextField
-   label="masterRooms" variant="outlined" {...register('masterRooms',{required:true})}size="small"fullWidth
+   label="her_title" variant="outlined" {...register('her_title',{required:true})}size="small"fullWidth
          />
-         {errors.masterRooms && <Typography sx={{color:'red'}}>please enter masterRooms</Typography>}
+         {errors.her_title && <Typography sx={{color:'red'}}>please enter her_title</Typography>}
 </Box>
 <Box>
 <TextField
-   label="description" variant="outlined" {...register('description',{required:true})}size="small"fullWidth
+   label="hero_img" variant="outlined" {...register('hero_img',{required:true})}size="small"fullWidth
          />
-         {errors.description && <Typography sx={{color:'red'}}>please enter description</Typography>}
+         {errors.hero_img && <Typography sx={{color:'red'}}>please enter hero_img</Typography>}
 </Box>
-
-
+<Box>
+<TextField
+   label="hero_description" variant="outlined" {...register('hero_description',{required:true})}size="small"fullWidth
+         />
+         {errors.hero_description && <Typography sx={{color:'red'}}>please enter hero_description</Typography>}
+</Box>
+<Box>
+<TextField
+   label="footer_Text" variant="outlined" {...register('footer_Text',{required:true})}size="small"fullWidth
+         />
+         {errors.footer_Text && <Typography sx={{color:'red'}}>please enter footer_Text</Typography>}
+</Box>
 </Stack>
 
     </Box>
@@ -386,11 +365,12 @@ delethok.TOggle()
    <CircularProgress sx={{fontSize:"60px" }}/>
 <Typography >Loading...</Typography>
     </Box>
-   </Box>) : <Guryahalist  GuryahaData={client?.data} guryahaUpdate={UpdateClientInfo} GuryhaDelete={deletes} />}
+   </Box>) : <Homelist  clientData={client?.data} clientsUpdate={UpdateClientInfo} clientDelete={deletes} />}
   {/* //  <Box>
-
+// 
   //  </Box> */}
    {/* {clients ? <ClientList clientData={clients} clientDelete={deletes} clientsUpdate={UpdateClientInfo}/> : null } */}
     </Box>
     </>
 }
+
