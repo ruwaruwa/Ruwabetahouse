@@ -31,12 +31,12 @@ export const  About=()=> {
     const {mutateAsync}=Addquery('/about','about')
 
     const alldataUP= async()=>{
-        const data= {
+        const xog= {
             full_descrip:fulldescription,
             description:decribtion
         }
-        console.log(data)
-        mutateAsync(data).then(()=>{
+        console.log(xog)
+        mutateAsync(xog).then(()=>{
             toast.success('success fully updated')
         })
     } 
