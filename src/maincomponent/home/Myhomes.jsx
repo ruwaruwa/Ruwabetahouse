@@ -72,7 +72,7 @@ export default function Myhomes() {
     
       
      <Box  component={"form"} onSubmit={handleSubmit(myshirkada)}>
-     <Button type='submit' variant='contained' size='medium'sx={{marginLeft:100}} >
+     <Button type='submit' variant='contained' size='medium'sx={{marginLeft:70,mt:1}} >
                        {' '}
                        Submit
                      </Button>
