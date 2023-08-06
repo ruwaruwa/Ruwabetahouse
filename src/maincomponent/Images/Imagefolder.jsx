@@ -68,9 +68,9 @@ Type:{Housetype} {" "}  {" "} Ref ID: {" "} {id}
         <CardMedia
             key={index}
             sx={{ height: 140 }}>
-
+   <img src={url}/>
             </CardMedia>
-            <img src={url}/>
+         
            
         
         <CardContent>

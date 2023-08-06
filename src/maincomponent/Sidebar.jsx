@@ -71,7 +71,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
           </ListItem>
           </Link>
 
-<Link to={'gellary'}>
+<Link to={'gellary'}style={{textDecoration:"none"}}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'gellary' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
@@ -88,7 +88,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
             </ListItemButton>
           </ListItem>
           </Link>
-          <Link to={'guryaha'}>
+          <Link to={'guryaha'} style={{textDecoration:"none"}}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'guryaha' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
@@ -105,7 +105,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
             </ListItemButton>
           </ListItem>
           </Link>
-          <Link to={'clients'}>
+          <Link to={'clients'} style={{textDecoration:"none"}}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'clients' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
@@ -141,7 +141,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
           </ListItem>
           </Link> */}
 
-          <Link to={'service'}>
+          <Link to={'service'} style={{textDecoration:"none"}}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'service' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
@@ -160,7 +160,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
           </Link>
           
 
-          <Link to={'about'}>
+          <Link to={'about'} style={{textDecoration:"none"}}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'about' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
@@ -180,7 +180,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
 
           
 
-          <Link to={'Contacts'}>
+          <Link to={'Contacts'} style={{textDecoration:"none"}}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'Contacts' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'
@@ -200,7 +200,7 @@ export const Sidebar=({Droweropen,drowerclose})=>{
 
          
 
-          <Link to={'users'}>
+          <Link to={'users'} style={{textDecoration:"none"}}>
           <ListItem disablePadding>
             <ListItemButton sx={[selectedMenu === 'users' && {bgcolor:"primary.main",color:'white',":hover":{
               bgcolor:'primary.main'

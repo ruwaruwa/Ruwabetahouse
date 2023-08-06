@@ -6,6 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 import {getAllquery,Addquery} from '../../SHared/ReactQuery'
 import{Getall} from '../../SHared/Apiconfig'
 import { toast } from 'react-toastify';
+import {GetAbout} from './APIcruid'
 export const  About=()=> {
     const [decribtion, setecribtio] = useState('');
     const [fulldescription, setfuldescription] = useState('');
@@ -15,25 +16,31 @@ export const  About=()=> {
     // }
 
     useEffect(()=>{
-        const GETDATA= async()=>{
-            const xogta= await  Getall('/about')
-            setfuldescription(xogta[0]?.full_descrip)
-            setecribtio(xogta[0]?.decribtion)
+        const GETdata= async()=>{
+            const {data} = await  Getall('/about')
+
+            console.log(data) 
+//console.log(xogta._id)
+            setfuldescription(data[0]?.full_descrip)
+            setecribtio(data[0]?.description)
         }
-        GETDATA()
+        GETdata();
+
     },[])
     //poest,updates
     const {mutateAsync}=Addquery('/about','about')
 
-    const alldataUP=async()=>{
-        const data={
+    const alldataUP= async()=>{
+        const data= {
             full_descrip:fulldescription,
-            decribtion:decribtion
+            description:decribtion
         }
+        console.log(data)
         mutateAsync(data).then(()=>{
             toast.success('success fully updated')
         })
     } 
+
     return (
         <>
        <Box sx={{ textAlign: 'center'}}>
@@ -51,15 +58,15 @@ export const  About=()=> {
         <Box>
     
     <Typography fontSize={'50'}>full_discribtion</Typography>
-            <ReactQuill  value={fulldescription}onChange={setfuldescription}/>
+            <ReactQuill   value={fulldescription} onChange={setfuldescription} placeholder={'full describtion'}/>
     </Box>
            <Box>
            <Typography fontSize={'50'}>discribtion</Typography>
             
-            <ReactQuill  value={decribtion}onChange={setecribtio}/>
+            <ReactQuill  value={decribtion} onChange={setecribtio} placeholder={'decribtion'}/>
            </Box>
      
-           <Button sx={{color:'white',bgcolor:'primary.dark'}} onClick={()=>alldataUP()}>Save</Button>
+           <Button type='submit' variant='contained' sx={{color:'white',bgcolor:'primary.dark'}} onClick={()=>alldataUP()}>Save</Button>
         </Stack>
         </Box>
         

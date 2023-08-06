@@ -174,7 +174,7 @@ const rows=GuryahaData ? GuryahaData:null
 return (
   <>  
   
- <Box sx={{bgcolor:'primary.dark'}}>
+ <Box >
   {/* <IconButton onClick={Toggales}>
       <AdUnits></AdUnits>
   </IconButton> */}
@@ -189,7 +189,7 @@ return (
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          <Box sx={{p:3}}>
+          
 <Stack direction={'column'}>
 {/* <Box>
 <Typography variant='h6'>Deposit: </Typography>
@@ -209,81 +209,76 @@ return (
      
    <Divider/>
       <Stack direction={'row'} spacing={2}>
-<Box>
-<Typography variant=''>description</Typography>
-</Box>
-         <Box>
+
+<Typography variant='h5'>description: </Typography>
+
+         <Typography variant="h5">
           {datada?.description}
-          </Box>
+          </Typography>
    </Stack>
 
   <Stack direction={'row'} spacing={4}>
  
-<Box>
-<Typography variant=''>parking</Typography>
-</Box>
-         <Box>
+
+<Typography variant='h5'>parking :</Typography>
+
+         <Typography variant="h5">
           {datada?.parking}
-          </Box>
+          </Typography>
 
   </Stack>
       <Divider/>
-      <Stack direction={'row'} spacing={2}>
-<Box>
-<Typography variant=''>masterRooms</Typography>
-</Box>
-         <Box>
-          {datada?.masterRooms}
-          </Box>
+      <Stack direction={'row'} spacing={4}>
+
+
+<Typography variant='h5'>masterRoom :{" "}</Typography>
+
+<><Typography variant="h6"> {datada?.masterRooms}</Typography></>
+
+        
    </Stack>
       <Divider/>
-     <Stack direction={'row'} spacing={2}>
-     <Box>
-<Typography variant=''>pathrooms</Typography>
+     <Stack direction={'row'} spacing={4}>
+    
+<Typography variant='h5'>path rooms </Typography>
          
-   </Box>
-   <Box>
-          {datada?.pathrooms}
-          </Box>
+  
+   <Typography variant="h5">{datada?.pathrooms}</Typography>
      </Stack>
       <Divider/>
       
 
 </Stack> 
 <Stack direction={'row'} spacing={2}>
-  <Box sx={{display:'flex',gap:2}}>
+
 <Divider/>
-<Box sx={{gap:2,display:'flex'}}>
-<Typography variant='h6'>Deposit Amoun : </Typography>
-         <Box>
-          {datada?.deposit
-}
-          </Box>
-   </Box>
+
+<Typography variant='h6'>DepositAmoun:</Typography>
+        <Typography variant="h5">  {datada?.deposit}</Typography>
+
    <Divider/>
-   <Box sx={{gap:2,display:'flex'}}>
-<Typography variant='h6'>age</Typography>
-         <Box>
-          {datada?.age}
-          </Box>
-   </Box>
+
+<Typography variant='h5'>age :</Typography>
+       
+        <Typography variant="h5">  {datada?.age}</Typography>
+          
+   
    <Divider/>
-   <Box sx={{gap:2,display:'flex'}}>
-<Typography variant='h6'> Amount: </Typography>
-         <Box>
+
+<Typography variant='h5'> Amount: </Typography>
+<Typography variant="h5">
+          
           {datada?.rent}
-          </Box>
-   </Box>
-   </Box>
+          </Typography>
 </Stack>
 
-          </Box>
+          
         
         </DialogContentText>
       </DialogContent>
     
     </Dialog>
- </Box>
+
  <Box>
   <Box sx={{height: 400, width: '100%' }}>
 <DataGrid
@@ -303,6 +298,7 @@ return (
   disableRowSelectionOnClick
 />
 </Box>
+  </Box>
   </Box>
   </>
   )

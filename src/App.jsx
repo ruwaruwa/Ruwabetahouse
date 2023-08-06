@@ -25,7 +25,8 @@ import { Gellary } from './maincomponent/Gellary/Gellary'
 
 import Imagefolder from './maincomponent/Images/Imagefolder'
 import Notfound from '../Notfound'
-import Home from './maincomponent/home/Home'
+//import Home from './maincomponent/home/Home'
+import Myhomes from './maincomponent/home/Myhomes'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -48,7 +49,8 @@ function App() {
   <Route path="*" element={<Notfound/>}></Route>
 
   <Route path='dashbord' element={<Dashbords/>}>
-  <Route path='home' element={<Home/>}></Route>
+  {/* <Route path='home' element={<Home/>}></Route> */}
+  <Route path='home' element={<Myhomes/>}></Route>
   <Route path='clients' element={<Clients/>} />
   <Route path='service' element={<Service/>} />
   <Route path='about' element={<About/>}></Route>
