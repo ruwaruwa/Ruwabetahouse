@@ -22,6 +22,7 @@ import { Link } from "react-router-dom";
 import{Getall,Addnew,updates,Deletes} from '../../SHared/Apiconfig'
 import Gellarylist from "./Gellarylist";
 import{getAllquery,Addquery,Updatequery,DeleteQuery} from  '../../SHared/ReactQuery'
+import AddIcon from '@mui/icons-material/Add';
 export const Gellary=()=>{
   const queryclient = useQueryClient()
 
@@ -255,7 +256,7 @@ delethok.TOggle()
         <Typography variant="h6">List gellary</Typography>
   
         <IconButton onClick={ToggleDailog}>
-<AddCircleOutline sx={{color:"primary.main",fontSize:'50px'}}/>
+<AddIcon sx={{color:"primary.main",fontSize:'50px'}}/>
         </IconButton>
     </Box>
 

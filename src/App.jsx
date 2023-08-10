@@ -27,10 +27,12 @@ import Imagefolder from './maincomponent/Images/Imagefolder'
 import Notfound from '../Notfound'
 //import Home from './maincomponent/home/Home'
 import Myhomes from './maincomponent/home/Myhomes'
+import Logn from './login/Logn'
+import { Use_usercontext } from './Authentications/UseCotext'
 
 function App() {
-  // const [count, setCount] = useState(0)
-
+   const [count, setCount] = useState(0)
+const {Islogin}=Use_usercontext()
   return (
     <>
        
@@ -45,9 +47,9 @@ function App() {
 {/* <Dashbords/> */}
 {/* <Imagefolder/> */}
  <Routes>
-  <Route path='/' element={<h2>login bage</h2>}></Route>
+  <Route path='/' element={<Logn/>}></Route>
   <Route path="*" element={<Notfound/>}></Route>
-
+{Islogin &&
   <Route path='dashbord' element={<Dashbords/>}>
   {/* <Route path='home' element={<Home/>}></Route> */}
   <Route path='home' element={<Myhomes/>}></Route>
@@ -68,7 +70,7 @@ function App() {
   <Route path='Contacts'>login page</Route>
   <Route path='users'>login page</Route> */}
 
-  </Route>
+  </Route>}
 
  </Routes>
     </>

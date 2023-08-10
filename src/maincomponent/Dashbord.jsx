@@ -1,11 +1,14 @@
-import { Box, IconButton, Stack } from '@mui/material'
+import { Box, IconButton, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import  {Sidebar}  from './Sidebar'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Clients } from './Clients/Client';
 import { Service } from './services/Service';
 import { Outlet } from 'react-router-dom';
+import { Use_usercontext } from '../Authentications/UseCotext';
+import { Logout } from '@mui/icons-material';
 function Dashbords() {
+    const{email,logOUT}=Use_usercontext()
     const[drowperopen,setdroweropen]=useState(false)
     const togledrow=()=>{
         setdroweropen(!drowperopen)
@@ -32,7 +35,12 @@ justifyContent:{
 
         <MenuIcon sx={{color:'white'}}/>
     </IconButton>
-
+<Stack direction={'row'} spacing={2}>
+<Typography>User {" "}: {email}</Typography>
+<IconButton sx={{p:0}} onClick={()=>logOUT()}>
+<Logout sx={{color:'white'}}/>
+</IconButton>
+</Stack>
 </Box>
 
 {/* {my content pages} */}

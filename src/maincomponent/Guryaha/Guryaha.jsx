@@ -15,6 +15,7 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query'
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import { useDeletehock } from "../DeleteHoks/Deletehock";
 import Delete_Confirm from "../DeleteComponen/Delete_Confirm";
 import { toast } from "react-toastify";
@@ -234,7 +235,7 @@ delethok.TOggle()
         <Typography variant="h6">List houses</Typography>
   
         <IconButton onClick={ToggleDailog}>
-<AddCircleOutline sx={{color:"primary.main",fontSize:'50px'}}/>
+<ControlPointIcon sx={{color:"primary.main",fontSize:'50px'}}/>
         </IconButton>
     </Box>
 
