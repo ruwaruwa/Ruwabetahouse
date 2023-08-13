@@ -13,10 +13,11 @@ export default function Logn() {
     useEffect(()=>{
 if(jsoncookie.get('token')){
       usenav('/dashbord')
+
     }
     },[])
     const {register,setValue,handleSubmit,}=useForm()
-    const {setislogin}=Use_usercontext()
+    const {setislogin,role,setrole}=Use_usercontext()
 
     const usenav=useNavigate()
     const{mutateAsync,isError,isLoading,error,data:respost}=useMutation({
@@ -37,6 +38,11 @@ if(jsoncookie.get('token')){
     usenav('/dashbord')
 
    //window.location.href="/dashbord"
+//    const reqes=axios.get(`users/${tokendecode._id}`).then((res)=>{
+//     res.data
+//     setrole(reqes.data.res)
+
+// })
 
  }
 //  else{
